@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><a href = "#" onclick="goBack()">Back</a></p>
+    <p><a href = "#"onclick="goNext()">Next</a></p>
+    <button onclick="onclickEvent();">Click</button>
+    <button onclick="setInterval();">Click</button>
+    <script>
+
+        // đối tượng window
+        console.dir(window);
+        document.write('độ rộng cửa sổ: ' + window.innerWidth);
+        document.write('chiều cao cửa sổ: '+ window.innerHeight);
+        function moCuaSo(){
+            window.open ("https://chat.openai.com/c/57582aa7-7d3b-42bb-bcc5-c3e12c3df0c9")
+        }
+
+        //đối tượng screẽn: cung cấp thuộc tính để lấy thông tin về màn hình của ng truy cập
+        alert("Chieu cao con lai la: " + screen.availHeight);
+        alert("Tong so chieu cao la: " + screen.height);
+        alert("Bang mau la: " + screen.colorDepth);
+
+        //đối tượng navigator: cung cấp thông tin về trình duyệt đang sử dụng
+        document.write( "<br>"+"version: " + navigator.version + "<br>");
+        document.write("cookieEnabled: " + navigator.cookieEnabled+ "<br>");
+
+        //đối tượng location: quản lý thông tin về URL hiện tại
+        document.write("host: " + location.host +"<br>");
+        document.write("hostname: " +location.hostname + "<br>");
+        document.write("href: " + location.href +"<br>");
+        document.write("pathname: " +location.pathname + "<br>");
+        document.write("port: " + location.port +"<br>");
+        document.write("protocol: " +location.protocol + "<br>");
+
+        //đối tượng history: Chứa thông tin về các URL được người dùng truy cập
+        function goBack() {
+            history.back();
+        }
+            function goNext() {
+            history.forward();
+        }
+
+        //đối tượng Timer: cung cấp các phương thức để xử lý sự kiện thời gian
+        function onclickEvent(){
+            var t = setTimeout("alert('Hi');",1000);//thực hiện công việc trong 1 khoảng thời gian trong tương lai
+        }
+        function setInterval(){
+            var t= setInterval("alert('Hi');",1000);//thực hiện lặp lại sau 1 khoảng thời gian
+        }
+
+        //getdate 
+        let d = new Date();
+        document.write("Ngày: "+ d.getDate())
+    </script>
+</body>
+</html>

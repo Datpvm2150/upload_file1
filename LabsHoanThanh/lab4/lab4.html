@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4</title>
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+    <div class="content">
+        <h2>Tra cứu điểm số sinh viên</h2>
+        <label for="">Họ Tên:</label> <input type="text" id="ten"> <br> <br>
+        <label for="">Điểm Toán:</label> <input type="number" id="toan" min="0" max="10" step="0.5" oninput="gioiHan(this)"><br> <br>
+        <label for="">Điểm Văn:</label> <input type="number" id="van" min="0" max="10" step="0.5" oninput="gioiHan(this)"><br> <br>
+        <label for="">Điểm Anh:</label> <input type="number" id="anh" min="0" max="10" step="0.5" oninput="gioiHan(this)"><br> <br>
+        <button onclick="thongBao();">Thông Báo</button>
+        <div id="KetQua" class="kq"></div>
+    </div>
+    <script>
+        var sv = new Object();
+        function thongBao(){
+            var kq = ''
+            sv.hoten = document.getElementById("ten").value;
+            kq += sv.hoten;
+            // document.getElementById("KetQua").innerHTML = kq;
+            var toan = Number(document.getElementById("toan").value);
+            var van = Number(document.getElementById("van").value);
+            var anh = Number(document.getElementById("anh").value);
+            var dtb = (toan + van + anh)/3
+            var tb= '';
+            if(dtb>= 5) tb= 'ĐỖ'
+            else tb= 'TRƯỢT'
+            document.getElementById("KetQua").innerHTML = "Họ Và Tên: "+ kq +"<br>"+"Điểm Trung Bình: "+ dtb.toFixed(3) +"<br>"+"Trạng Thái:  "+ tb;
+
+        }
+        function gioiHan(input) {
+        //parseInt: chuyển đổi giá trị nhập vào thành số nguyên, ký tự không hợp lệ bị loại bỏ
+            var value = parseInt(input.value);
+            if (isNaN(value) || value < 0 || value > 10) {
+            input.value = '';
+            alert ("Nhập điểm từ 0-10");
+            }
+        }
+    </script>
+</body>
+</html>

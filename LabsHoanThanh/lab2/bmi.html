@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        var w = prompt("Nhập vào số cân nặng của bạn (kg): ");
+        if(isNaN(w)){
+            var w2= prompt("Nhập lại cân nặng của bạn bằng số: ");
+            var h = prompt("Nhập vào số chiều cao của bạn (cm): ");
+            var h1=h/100;
+            var bmi= w2/Math.pow(h1,2);
+        }
+        else{    
+            var h = prompt("Nhập vào số chiều cao của bạn (cm): ");
+            var h1=h/100;
+            var bmi= w/Math.pow(h1,2);
+        }
+        if(bmi<18.5){
+            alert("Bạn bị thiếu cân, hãy ăn nhiều vào!!");
+            }
+            else if(bmi >=18.5 && bmi<25)
+            {
+            alert("Body của bạn đang đẹp, hãy cố gắng giữ gìn");
+            }
+            else if(bmi>=25 && bmi<30)
+            {
+            alert("Bạn đang thừa cân rồi, ăn ít lại nhé!!!");
+            }
+            else
+            {
+            alert("Bạn bị béo phì rồi, hãy ăn kiêng và tập thể dục đều đặn nhé!!!");
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <link rel="stylesheet" href="5.2.css">
+</head>
+<body>
+    <div class="left">
+        <h3>DANH MỤC SẢN PHẨM</h3>
+    <table border="2">
+        <tr>
+            <td>Iphone 9</td>
+            <td>$2700</td>
+            <td><button onclick="them(this);">Thêm</button></td>
+        </tr>
+        <tr>
+            <td>SamSung Star</td>
+            <td>$1500</td>
+            <td><button onclick="them(this);">Thêm</button></td>
+        </tr>
+        <tr>
+            <td>Nokia 2020</td>
+            <td>$1200</td>
+            <td><button onclick="them(this);">Thêm</button></td>
+        </tr>
+        <tr>
+            <td>Sony Xperia</td>
+            <td>$1700</td>
+            <td><button onclick="them(this)">Thêm</button></td>
+        </tr>
+    </table>
+    <div class="right">
+        <h3>GIỎ HÀNG</h3>
+    <table border="2" id="cart"></table>
+    <h3>TỔNG TIỀN: $
+        <span id="tong">0</span></h3>
+    </div>
+    </div>
+
+    
+    <script>
+        function them(button){
+            var row = button.parentElement.parentElement.cloneNode(true);
+            var btnXoa = row.getElementsByTagName("button")[0];
+            btnXoa.innerText = "Xóa";
+            btnXoa.setAttribute('onclick','xoa(this)');
+            document.getElementById("cart").appendChild(row);
+            tinhtong();
+        }
+
+        function xoa(button){
+            var row = button.parentElement.parentElement;
+            document.getElementById("cart").removeChild(row);
+            tinhtong();
+        }
+
+        function tinhtong(){
+            var cart = document.getElementById("cart");
+            var rows = cart.getElementsByTagName("tr");
+            var tong = 0;
+            for(var i = 0; i< rows.length;i++){
+                var cells = rows[i].getElementsByTagName("n ");
+                var price = cells[1].innerText.substr(1);
+                tong += 1*price;
+            }
+            document.getElementById("tong").innerText = tong;
+        }
+    </script>
+</body>
+</html>

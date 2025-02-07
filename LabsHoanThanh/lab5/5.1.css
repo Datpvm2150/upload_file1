@@ -1,0 +1,15 @@
+hr{
+    width: 200px;
+}
+.content{
+    width: 300px;
+    background-color:bisque;
+    text-align: center;
+    margin: 20px auto;
+    border: 1px solid pink;
+    padding: 10px 10px;
+}
+.content>input{
+    width: 100px;
+    text-align: center;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+    <link rel="stylesheet" href="5.1.css">
+</head>
+<body>
+    <div class="content">
+    <label id="pro" data-price="1950">Iphone 9</label>
+    <input type="number" id="qty">
+    <button onclick="display();">OK</button> 
+    <h3>Name: <span id="name">?</span></h3>
+    <h3>Amount: <span id="amount">?</span></h3>
+    </div>
+    <script>
+        function display(){
+            var qty = document.getElementById("qty");
+
+            var name = document.getElementById("pro").innerText;
+            var price = document.getElementById("pro").getAttribute("data-price");
+
+            var sl = qty.value;
+
+            var sum = sl* price;
+
+            document.getElementById("name").innerText = name;
+            document.getElementById("amount").innerHTML = "$"+sum;
+        }
+    </script>
+</body>
+</html>

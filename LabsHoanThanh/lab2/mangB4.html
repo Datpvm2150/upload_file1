@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        const theList = ['Lauren', 'Kevin',true,35,null,undefined,['one', 'two']];
+        theList.shift();
+        theList.pop();
+        
+        theList.unshift("FIRST");
+        theList.splice(4,0,"hello world");
+        theList.splice(3,0,"middle");
+        theList.splice(2,0,"Hello")
+        theList.push("Last");
+        console.log(theList);
+    </script>
+</body>
+</html>

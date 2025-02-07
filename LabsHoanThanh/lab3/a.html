@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+  <h1>Rock Paper Scissors Game</h1>
+  <div>
+    <button onclick="chooseOption(0)">Rock</button>
+    <button onclick="chooseOption(1)">Paper</button>
+    <button onclick="chooseOption(2)">Scissors</button>
+  </div>
+  <script>
+    const choices = {
+      0: 'Rock',
+      1: 'Paper',
+      2: 'Scissors'
+    };
+
+    function chooseOption(userChoice) {
+      const computerChoice = Math.floor(Math.random() * 3);
+
+      console.log('User choice:', choices[userChoice]);
+      console.log('Computer choice:', choices[computerChoice]);
+
+      // Tiếp tục xử lý kết quả ở đây
+    }
+  </script>
+</body>
+</html>

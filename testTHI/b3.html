@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>HÓA ĐƠN</h3>
+    <form action="thanhcong.html" onsubmit="return valForm">
+        <div class="form=group">
+            <label for="">Khách hàng</label>
+            <input type="text" id="kh">
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Loại hàng</label>
+            <select name="" id="lh">
+                <option value="">Loại 1</option>
+                <option value="">Loại 2</option>
+            </select>
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Đơn giá</label>
+            <input type="number" id="dg" onchange="tinhTien()">
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Số lượng</label>
+            <input type="number" id="sl" onchange="tinhTien()">
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Thành tiền</label>
+            <input type="text" id="tt">
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Nơi nhận hàng</label>
+            <input type="radio" id="nt"> Nội thành
+            <input type="radio" id="ngt"> Ngoại thành
+            <span id="check"></span>
+        </div>
+
+        <div class="form=group">
+            <label for="">Phí vận chuyển</label>
+            <input type="text" id="pvc">
+            <span id="check"></span>
+        </div>
+
+        <input type="submit" value="Đặt hàng">
+    </form>
+
+    <script>
+        function tinhTien(){
+            var dongia = document.getElementById("dg")
+            var soluong = document.getElementById("sl")
+            document.getElementById("tt").value = dongia.value * sl.value
+        }
+    </script>
+</body>
+</html>

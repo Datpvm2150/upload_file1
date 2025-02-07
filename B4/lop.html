@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //tạo lớp
+        function Cat(name,color,weight,age){
+            this.name = name;
+            this.color = color;
+            this. weight = weight;
+            this.age = age;
+        }
+
+        //Tạo đối tượng
+        let Cat1= new Cat('Trâu','Black','2kg',3);
+        let Cat2= new Cat('Bò','White','2kg',3);
+
+    //Ví dụ
+        //Tạo lớp Sinh Viên
+        function SV(name, p1, p2, p3){
+            this.name = name;
+            this.p1 = p1;
+            this.p2 = p2;
+            this.p3 = p3;
+            this.dtb = (Number(p1)+Number(p2)+Number(p3))/3
+        }
+
+        //Tạo đối tượng
+        let SV1= new SV("Phú","10","10","10");
+        let SV2= new SV("Phương","9","8","10");
+        let SV3= new SV("Đạt","8","10","7");
+        let SV4= new SV("Ly","10","9","10");
+        let SV5= new SV("Lanh","7","9","8");
+
+        document.write(SV1.name + "<br>" + SV1.dtb + "<br>" );
+
+        //Mảng và đối tượng
+        SV[0]= new SV("Phú","10","10","10");
+        SV[1]= new SV("Phương","9","8","10");
+        SV[2]= new SV("Đạt","8","10","7");
+        SV[3]= new SV("Ly","10","9","10");
+        SV[4]= new SV("Lanh","7","9","8");
+
+        for(let i=0; i<=SV.length; i++){
+            document.write(SV[i].name + "<br>" + SV[i].dtb + "<br>");
+        }
+        for(var x in SV){
+            console.log(SV[x].name + ' ' + SV[x].dtb)
+        }
+
+        //Mảng trong object
+        let Honda = {
+            tenCty: "Cty san xuat xe may",
+            matHang: ["SH",
+            "Lead",
+            "Wave S","Wave Alpha"],
+            namThanhLap: 1995
+        };
+
+        //In ra màn hìn các mặt hàng của cty
+
+        for(let i=0; i < Honda.matHang.length; i++){
+            document.write(Honda.matHang[i] + ' ');
+        }
+    </script>
+</body>
+</html>

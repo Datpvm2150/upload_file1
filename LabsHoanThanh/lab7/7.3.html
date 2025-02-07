@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        form{
+            width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom,white, pink);
+            border: 1px solid #ddd;
+            padding: 20px;
+            
+        }
+        .item{
+            margin-bottom: 10px;
+            margin-left: -90px;
+        }
+        label{
+            min-width: 120px;
+            display: inline-block;
+        }
+        input{
+            padding: 5px 15px;
+        }
+        #submit{
+            margin-left: 80px;
+            height: 40px;
+            background-color: antiquewhite;
+            color: deeppink;
+        }
+        p{
+            color: red;
+            display: inline-block;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <form  onsubmit="return valForm()" method="get">
+        <div class="item">
+            <label for=""></label>
+            <input id="hoten" type="text" placeholder="Full Name" onchange="changeHoTen()">
+            <p id="KiemLoiHoTen"></p>
+        </div>
+        <div class="item">
+            <label for=""></label>
+            <input id="dem" type="text" placeholder="Last Name" onchange="changeDem()">
+            <p id="KiemLoiDem"></p>
+        </div>
+        <div class="item">
+            <label for=""></label>
+            <input id="tuoi" type="number" placeholder="Age" onchange="changeTuoi()">
+            <p id="KiemLoiTuoi"></p>
+        </div>
+        <input id="submit" type="submit" value="submit">
+    </form>
+
+    <script>
+        function changeHoTen(){
+            if(document.getElementById('hoten') != ''){
+                document.getElementById('KiemLoiHoTen').innerText = '';
+            }
+        }
+        function changeDem(){
+            if(document.getElementById('dem') != ''){
+                document.getElementById('KiemLoiDem').innerText = '';
+            }
+        }
+        function changeTuoi(){
+            if(document.getElementById('tuoi').value != '' && !isNaN(document.getElementById('tuoi').value) && document.getElementById('tuoi').value > 0 ){
+               document.getElementById('KiemLoiTuoi').innerText = '';
+            }
+        }
+        function valForm(){
+            var hoten = document.getElementById('hoten'); // Biến hoten bằng thẻ input có id = hoten
+            var tuoi = document.getElementById('tuoi');
+            var dem = document.getElementById('dem');
+            
+            if(hoten.value == ''){
+               document.getElementById('KiemLoiHoTen').innerText = '(*)Full name không được để trống';
+                return false; // trả về giá trị là false cho hàm valForm, dữ liệu ko được đây lên sever
+            }
+            if(dem.value == ''){
+               document.getElementById('KiemLoiDem').innerText = '(*)Last name không được để trống';
+                return false; // trả về giá trị là false cho hàm valForm, dữ liệu ko được đây lên sever
+            }
+            // Kiểm tuổi nhập vào phải khác rỗng và là số dương
+            if(tuoi.value == '' || isNaN(tuoi.value) || tuoi.value <= 0 ){
+               document.getElementById('KiemLoiTuoi').innerText = '(*)Tuổi phải là số dương';
+                return false;
+            }
+            return true; // trả về giá trị là true cho hàm valForm, dữ liệu được đây lên sever
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xử lý sự kiện</title>
+</head>
+<body>
+    <form class="btn-gr" action="">
+        <input type="text" id="number" value="0">
+        <input onclick="inSo()" type="button" value="Print">
+    </form>
+    <div id="hienSo"></div>
+    <script>
+        var i=0;
+        function inSo(){
+            //getElementById: trả về phần tử có thuộc tính id được chỉ định
+            var x= document.getElementById("number").value;
+            var html='';
+            while(i<=x){
+                html+=i+"<br>";
+                i++;
+            }
+            //getElementById.innerHTML: được sử dụng để viết html động trên trang web html.
+            document.getElementById('hienSo').innerHTML= html;
+        }
+    </script>
+</body>
+</html>

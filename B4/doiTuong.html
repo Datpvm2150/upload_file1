@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // khai báo đối tượng
+        let dog = {
+            dogName: "JavaScript",
+            weight: 2.4,
+            color: "brown",
+            breed: "chihuahua",
+            age: 3
+        }
+
+        let ny = {
+            nyName: "Thu Phương",
+            weight: 42,
+            height: 153,
+            age: 22,
+            hobby: "cute",
+            say: function(){
+                return 'iu iu';
+            }
+        };
+
+    //Gọi thuộc tính của đối tượng
+    document.write('Tên: '+ ny.nyName + "<br>"); //tenDoiTuong.tenThuocTinh
+    document.write('Nặng: '+ ny["weight"]+ "<br>");     //tenDoiTuong["tenThuocTinh"]
+    document.write('Nói: '+ ny.say());    
+    </script>
+</body>
+</html>

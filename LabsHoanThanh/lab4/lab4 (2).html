@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lab4</title>
+    </head>
+    <body>
+        <script>
+        //BAI1 1:
+// Nhập vào hộp thoại họ tên, năm sinh, giới tính (1/0)
+// hiển thị ra câu lênh
+//ông/bà nguyễn văn a có/kô đủ tuổi đi nghĩa vụ quân sự
+// nếu tuổi >=18 và tuổi <=27 (Đủ tuổi đi NVQS )
+// ngược lại (Không đủ tuổi đi NVQS)
+// tuổi = năm hiện tại - năm sinh
+let a = prompt("Xin Mời nhập họ tên :" );
+alert ("họ tên của ông hoặc bà là: " +a);
+let b = prompt("Xin Mời nhập năm sinh :" );
+alert ("Năm sinh của ông hoặc bà là : " +b);
+let c = prompt("Xin Mời nhập Giới tính  ( 1 là nam , nữ là 0):" );
+if( c == 1 ){
+    alert("giới tính của bạn là :nam");
+}
+else{
+    alert("giới tính của bạn là : nữ");
+}
+var tuoi = 2024 - Number(b); 
+if (tuoi >= 18 && tuoi <= 27 && c == 1){
+    alert( " Ông đủ tuổi đi nghĩa vụ quân sự " );
+}
+else if(tuoi < 18 && tuoi > 27 && c == 1){
+    alert(" ông không đủ điều kiện đi nghĩa vụ quân sự " );
+}
+else if (tuoi >= 18 && tuoi <= 27 && c == 0){
+    alert( " bà Không đủ điều kiện đi nghĩa vụ quân sự " );
+}
+else{
+    alert(" bà không đủ điều kiện đi nghĩa vụ quân sự " );
+}
+
+//BÀI2:
+//tạo 1 class hinhchunhat
+//gồm thuộc tính chiều dài,chiều rộng
+//gồm phương thức tính chu vi diện tích
+// tạo 1 mảng đối tượng gồm 5 hình chữ nhật
+//và hiển thị chu vi diện tích của hình chữ  nhật ở
+// vị trí số 4
+let chieudai;
+let chieurong;
+let chuvi ;
+let dientich ; 
+function hinhchunhat1(chieudai,chieurong ){
+this.chieudai = chieudai ;
+this.chieurong = chieurong;
+this.chuvi = function cv(cv1){
+     cv1 = (Number(chieudai) + Number(chieurong)) *2;
+     return cv1;
+
+}
+this.dientich = function dt(dt1){
+     dt1 = Number(chieudai) * Number(chieurong) ;
+     return dt1 ;
+
+}
+}
+let hcn1 = new hinhchunhat1( 2 , 1);
+let hcn2 = new hinhchunhat1( 3, 2);
+hinhchunhat1[3] = new hinhchunhat1( 4 , 3);
+hinhchunhat1[4] = new hinhchunhat1( 7 , 6);
+hinhchunhat1[5] = new hinhchunhat1( 5 , 4);
+console.log("chu vi hình chữ nhật ở vị trí số 4 là : " +hinhchunhat1[4].chuvi(chieudai,chieurong));
+console.log("diện tích hình chữ nhật ở vị trí số 4 là : " +hinhchunhat1[4].dientich(chieudai,chieurong));
+
+
+
+</script>
+    </body>
+</html>

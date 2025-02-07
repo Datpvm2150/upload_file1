@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+    <style>
+        input{
+            height: 50px; width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Búa" onclick="getValue(0);"/>
+    <input type="button" value="Kéo" onclick="getValue(1);"/>
+    <input type="button" value="Bao" onclick="getValue(2);"/>
+    <script>
+        var arr = ['Búa','Kéo','Bao'];
+        var s = Math.floor(Math.random()*3);
+        console.log(s);
+        function getValue(x){
+            console.log(x);
+            if(x==s){
+                alert("Hòa");
+            } else if((x=='0' && s=='1')|| (x=='1' && s=='2')|| (x=='2' && s=='0')) {
+                alert("Bạn Thắng")
+            } else {alert("Bạn Thua")}
+        }
+    </script>
+</body>
+</html>

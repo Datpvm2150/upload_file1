@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="item">
+        <div class="item item1">Item 1</div>
+        <div class="item item2">Item 2</div>
+        <div class="item item3">Item 3</div>
+        <input type="text" name="hoten" value="">
+        <button onclick="hienThi()">CLick</button>
+        <div id="Ketqua"></div>
+    </div>
+
+    <script>
+        var newThe = document.createElement('h2') // tạo 1 thẻ
+        document.getElementById('item').appendChild(newThe); //thêm 1 node
+        var textNode = document.createTextNode('Kết quả là: ')
+        newThe.appendChild(textNode)
+
+        console.log(document.getElementById('item').childNodes) //xem các nốt con của phần tử
+        //xuống dòng là node text
+        console.log(document.getElementById('item').firstChild.nextSibling.innerHTML)
+
+        function hienThi(){
+            var hoten = document.getElementById('item').childNodes[7].value
+            document.getElementById('Ketqua').innerHTML = hoten
+        }
+
+        console.log( document.getElementById('item').childNodes.nextSibling)
+        // console.log(document.getElementById("item")) //truy xuất đến thẻ có id 'item'
+        // console.log(document.getElementsByClassName('item1')) //truy xuất đến thẻ có class 'item1' nhưng trả về mảng
+        // console.log(document.querySelector('.item1')) // truy xuất đến thẻ có class 'item1'
+        // console.log(document.querySelectorAll('.item'))// truy xuất đến nhiều thẻ có class "item " nhưng trả về mảng
+        // console.log(document.querySelectorAll('.item')[0])// truy xuất phần tử theo vị trí
+        // console.log(document.getElementsByTagName('div')) // truy xuất qua tên thẻ
+        // console.log(document.getElementsByName('hoten')) // truy xuất qua tên bên trong thẻ
+
+        document.querySelector('.item1').style.color = "red"
+        document.querySelector('.item2').style.fontSize = "20px"
+        document.querySelector('.item2').style.backgroundColor = "yellow"
+
+        
+        var arr = document.querySelectorAll('.item')
+
+        for(item of arr){
+            // console.log(item)
+            item.style.border = "1px solid black"
+            item.style.padding = "20px"
+        }
+    </script>
+</body>
+</html>

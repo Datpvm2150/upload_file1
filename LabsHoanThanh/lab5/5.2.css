@@ -1,0 +1,8 @@
+table{
+    border-collapse: collapse;
+    color: rgb(42, 30, 30);
+}
+td,th{
+    padding: 10px 10px;
+    background-color: pink;
+}

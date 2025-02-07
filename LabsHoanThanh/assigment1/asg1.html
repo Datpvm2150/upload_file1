@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assigment 1</title>
+        <link rel="stylesheet" href="asg1.css">
+    </head>
+    <body>
+        <div class="content">
+            <h3>Giải phương trình ax<sup>2</sup> + bx + c = 0</h3>
+            <span>Nhập số a: </span> <input type="number" id="soA" oninput="gioiHan(this)"> <br> <br>
+            <span>Nhập số b: </span> <input type="number" id="soB" oninput="gioiHan(this)"> <br> <br>
+            <span>Nhập số c: </span> <input type="number" id="soC" oninput="gioiHan(this)"> <br> <br>
+
+            <button onclick="chonSo()" class="a">CHO SỐ</button>
+            <button onclick="giaiPT()" class="b">GIẢI PT</button> <br> <br>
+            <textarea name="a" id="KetQua" cols="30" rows="10"></textarea> <br> <br>
+            <em id="time"></em> <br> <br>
+        </div>
+
+        <script>
+        function gioiHan(input) {
+        //parseInt: chuyển đổi giá trị nhập vào thành số nguyên, ký tự không hợp lệ bị loại bỏ
+            var value = parseInt(input.value);
+            if (isNaN(value) || value < 0 || value > 10) {
+            input.value = '';
+            alert ("Nhập số từ 0-10");
+            }
+        }
+
+        function chonSo(){
+            document.getElementById("soA").value = Math.round(Math.random()*10);
+            document.getElementById("soB").value = Math.round(Math.random()*10);
+            document.getElementById("soC").value = Math.round(Math.random()*10);
+        }
+        function giaiPT(){
+
+            var a = parseFloat(document.getElementById('soA').value);
+            var b = parseFloat(document.getElementById('soB').value);
+            var c = parseFloat(document.getElementById('soC').value);
+
+            var delta = b * b - 4 * a * c;
+    
+            if (delta < 0) {
+                document.getElementById('KetQua').innerHTML = "Phương trình không có nghiệm thực";
+            } 
+
+            else if (delta === 0) {
+                var x = -b / (2 * a);
+                document.getElementById('KetQua').innerHTML = "Phương trình có nghiệm kép: x = " + x;
+            } 
+
+            else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                document.getElementById('KetQua').innerHTML = "Phương trình có 2 nghiệm: x1 = " + x1.toFixed(3) + ", x2 = " + x2.toFixed(3);
+            }
+        }
+        
+        function updateClock(){
+            var currentDate = new Date();
+
+                var day = currentDate.getDate();
+
+                var month = currentDate.getMonth() + 1;
+
+                var year = currentDate.getFullYear();
+
+                var hours = currentDate.getHours();
+
+                var minutes = currentDate.getMinutes();
+
+                var seconds = currentDate.getSeconds();
+
+                var time= day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById("time").innerText = time;
+        }
+        setInterval(updateClock,1000)
+    </script>
+    </body>
+</html>

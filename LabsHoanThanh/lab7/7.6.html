@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đặt Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #radio {
+            margin-right: 5px;
+        }
+
+        #submit {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 250px;
+        }
+
+        #submit:hover {
+            background-color: #45a049;
+        }
+
+        #phi_vc {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return kiem_tra()">
+        <label for="san_pham">Sản phẩm:</label><br>
+        <input type="text" id="san_pham" name="san_pham"><br>
+
+        <label for="loai">Loại sản phẩm:</label><br>
+        <select id="loai" name="loai">
+            <option value="">--Chọn loại--</option>
+            <option value="1">Áo thun</option>
+            <option value="2">Áo Polo</option>
+            <option value="3">Áo khoác</option>
+            <option value="4">Áo sơ mi</option>
+        </select><br>
+    
+        <label for="don_gia">Đơn giá:</label><br>
+        <input type="text" id="don_gia" name="don_gia"><br>
+    
+        <label for="dia_chi">Nơi nhận hàng:</label>
+        <input id="radio" type="radio" name="dia_chi" onclick="hien_thi(false)"> Giao hàng trong nội thành
+        <input id="radio" type="radio" name="dia_chi" onclick="hien_thi(true)"> Phí giao hàng ngoại thành
+    
+        <div id="phi_vc" style="display:none;">
+            <label for="phi_van_chuyen">Phí vận chuyển:</label><br>
+            <input type="text" id="phi_van_chuyen" name="phi_van_chuyen"><br>
+        </div>
+    
+        <input id="submit" type="submit" value="Đặt mua">
+    </form>
+
+    <script>
+        function hien_thi(visible) {
+            var phi_vc = document.getElementById("phi_vc");
+            phi_vc.style.display = visible ? "" : "none";
+        }
+        
+        function kiem_tra() {
+            var sp = document.getElementById("san_pham");
+            var gia = document.getElementById("don_gia");
+            var loai = document.getElementById("loai");
+            var radios = document.getElementsByName("dia_chi");
+        
+            if (sp.value.length == 0) {
+                alert("Vui lòng nhập tên sản phẩm!");
+                return false;
+            }
+        
+            if (isNaN(gia.value)) {
+                alert("Vui lòng nhập số!");
+                return false;
+            } else if (parseFloat(gia.value) <= 0) {
+                alert("Vui lòng nhập số dương!");
+                return false;
+            } else if (gia.value === ''){
+                alert("Đơn giá không được để trống")
+                return false;
+            }
+        
+            if (loai.value.length == 0) {
+                alert("Vui lòng chọn loại sản phẩm!");
+                return false;
+            }
+        
+            if (!radios[0].checked && !radios[1].checked) {
+                alert("Vui lòng chọn nơi nhận hàng!");
+                return false;
+            }
+        
+            alert("Chúc mừng bạn đã nhập đúng!");
+            return true;
+        }
+    </script>
+</body>
+</html>

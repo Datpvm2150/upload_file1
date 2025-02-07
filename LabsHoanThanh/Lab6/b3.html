@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        img{
+            margin: 0 auto;
+            display: block;
+            width: 500px;
+            height: 500px;
+        }
+        input{
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        input:hover{
+            background-color: gainsboro;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="loadAnh()">
+    <img id="img" src="image/1.webp"/> 
+    <hr/>
+    <input type="button" value="back" onclick="last()">
+    <input type="button" value="next" onclick="next()">
+    <input type="button" value="start" onclick="start()">
+    <input type="button" value="stop" onclick="stop()">
+    <script>
+        var arrimg = new Array();//Tạo 1 biến mảng
+        function loadAnh(){
+            for(let i = 1; i<=6;i++){
+                arrimg[i] = new Image();//Tạo đối tượng ảnh
+                arrimg[i].src = "image/" + i + ".webp";
+                // console.log(arrimg[i].src);
+            }
+        }
+        var currentIndex = 0;
+        function last(){
+            if(currentIndex > 0 ){
+                currentIndex--;//giảm chỉ số đi 1
+                document.getElementById("img").src = arrimg[currentIndex].src;
+            } else {
+                currentIndex = arrimg.length -1;
+                document.getElementById("img").src = arrimg[currentIndex].src;
+            }
+        }
+        function next(){
+            if(currentIndex === arrimg.length ){
+                currentIndex = 0;//tăng chỉ số đi 1
+                document.getElementById("img").src = arrimg[currentIndex].src;
+            } else {
+                currentIndex++;//tăng chỉ số đi 1
+                document.getElementById("img").src = arrimg[currentIndex].src;
+            }
+        }
+        var t;
+        function start(){
+            t = setInterval(next, 1000);//Lặp lại lệnh
+        }
+        function stop(){
+            clearInterval(t);//xóa lệnh lặp ở trên
+        }
+    </script>
+</body>
+</html>

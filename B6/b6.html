@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px; height: 50px;
+            border: 1px solid gainsboro;
+        }
+        .change{
+            display: none;
+        }
+        img{
+            width: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="red"></div>
+    <div id="orange"></div>
+    <div id="yellow"></div>
+    <div id="green"></div>
+    <div id="blue"></div>
+    <div id="indigo"></div>
+    <div id="violet"></div>
+    <button id="bt" onclick="clickHere()" >Click here</button> <br>
+    <button id="bt2"  ></button>
+    <img class="img" src="a.jpg" alt="" onmouseover="onmouseoverImage()" onmouseout="onmouseoutImage()">
+    <!-- onmouseover là sự kiện khi khi di chuyển chuột vào phần tử
+    onmouseout là sự kiện khi di chuyển chuột ra khỏi ptu -->
+    <script>
+        function onmouseoverImage(){
+            document.querySelector('.img').src = 'b.jpg'
+        }
+        function onmouseoutImage(){
+            document.querySelector('.img').src = 'a.jpg'
+        }
+        //C2 để set onclick cho thẻ button theo id: document.getElementById("bt").onclick = function(){}
+        function clickHere(){
+           var color = document.getElementsByTagName("div")
+           //C1
+           for(let i = 0; i<color.length; i++){
+                color[i].style.backgroundColor= color[i].id
+           }
+
+           //C2
+           for (let item of color){
+                item.style.backgroundColor = item.id
+           }
+        //    var img = document.querySelector("img")
+        //     img.style.display = "none"
+
+            document.getElementById("red").classList.add("item1") //thêm class cho phần tử
+            document.getElementById("red").classList.remove("item1") //xóa class
+            document.querySelector("img").classList.toggle('change') //thay đổi class: thêm hoặc xóa sau khi click
+
+            document.getElementById('yellow').setAttribute('class','item2')
+            document.querySelector("img").setAttribute('id','img')
+
+            document.getElementById('bt2').addEventListener('click','clickHere()') //thêm sự kiện mới cho thẻ theo id
+        }
+        
+    </script>
+</body>
+</html>

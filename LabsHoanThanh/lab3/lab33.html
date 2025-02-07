@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="lab33.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button onclick="toan_hang('7')">7</button>
+      <button onclick="toan_hang('8')">8</button>
+      <button onclick="toan_hang('9')">9</button>
+      <button onclick="toan_tu('+')">+</button>
+      <button onclick="toan_hang('4')">4</button>
+      <button onclick="toan_hang('5')">5</button>
+      <button onclick="toan_hang('6')">6</button>
+      <button onclick="toan_tu('-')">-</button>
+      <button onclick="toan_hang('1')">1</button>
+      <button onclick="toan_hang('2')">2</button>
+      <button onclick="toan_hang('3')">3</button>
+      <button onclick="toan_tu('*')">*</button>
+      <button onclick="toan_hang('0')">0</button>
+      <button onclick="lam_lai()">C</button>
+      <button onclick="thuc_hien()">=</button>
+      <button onclick="toan_tu('/')">/</button>
+    </div>
+  </div>
+
+  <script>
+    //getElementById: trả về phần tử có thuộc tính id được chỉ định
+        function toan_hang(value) {
+        document.getElementById('display').value += value;
+        }
+
+        function lam_lai() {
+        document.getElementById('display').value = '';
+        }
+        function toan_tu(value){
+        document.getElementById('display').value += value;
+        }
+        function thuc_hien() {
+        var display = document.getElementById('display');
+    //eval: thực thi phép tính
+        var result = eval(display.value);
+        display.value = result;
+        }
+
+  </script>
+</body>
+</html>

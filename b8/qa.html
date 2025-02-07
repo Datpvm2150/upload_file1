@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!-- Muốn upload nhiều file dùng thuộc tính multiple cho input -->
+    <input type="file" multiple onchange="hienthi(this.files)">
+    <div id="hienthi"></div>
+    <p id="decripition">Hiển thị vị trí người dùng</p>
+    <button onclick="vitri()" id="hienthiViTri">Vị trí</button>
+    <div id="vitri"></div>
+    <br>
+    <video id="myVideo" src="Lỗi Tại Mưa x Ảo Ảnh ( Lê Bảo Remix )  Nhạc Hot Tiktok.mp4" width="640" height="360"></video>
+    <div id="control">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="stopVideo()">Stop</button>
+        <button onclick="replayVideo()">Replay</button>
+        <button onclick="increaseVolume()">Volume (+)</button>
+        <button onclick="decreaseVolume()">Volume (-)</button>
+        <button onclick="muteVolume()">Mute/Unmute</button>
+    </div>
+
+    <script>
+        $("#hienthi").addClass("hienthi");//thêm class = jquery
+        //Thêm sự kiện click chuột sử dụng jquery
+        $("#hienthiViTri").click(function(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition)
+            } else{
+                vitri.innerHTML = "không hiển thị"
+            }
+        })
+        $("#decripition").css('color','red');//thêm style cho thẻ = jquery
+
+        var myVideo = document.getElementById("myVideo");
+        console.dir(myVideo);
+        function playPause(){
+            if(myVideo.paused){
+                myVideo.play();//phương thức chạy video
+            } else{
+                myVideo.pause();//phương thức dừng video
+            }
+        }
+        function stop(){
+            myVideo.pause();
+            myVideo.currentTime = 0;//đưa video vào thời điểm bắt đầu
+        }
+        function replay(){
+            myVideo.currentTime = 0;
+            myVideo.play();//Chạy lại video
+        }
+        function increaseVolume(){
+            if(myVideo.volume < 1){
+                myVideo.volume = parseFloat(myVideo.volume + 0.1).toFixed(1);
+            }
+        }
+        function decreaseVolume(){
+            if(myVideo.volume > 0){
+                myVideo.volume = parseFloat(myVideo.volume - 0.1).toFixed(1);
+            }
+        }
+        function muteVolume(){
+            if(myVideo.volume){
+                myVideo.volume = false;
+            } else {
+                myVideo.volume = true;
+            }
+        }
+
+        //Hiển thị vị trí người dùng
+        var vitri = document.getElementById("vitri");
+        function vitri(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition)
+            } else{vitri.innerHTML = "không hiển thị"
+            }
+        }
+
+        function showPosition(position){
+            vitri.innerHTML = 'Vĩ độ: ' + position.coords.latitude + 'Kinh độ: ' + position.coords.longitude;
+        }
+
+        function hienthi(x){
+            // console.log(x);
+            // document.getElementById(hienthi).innerHTML = 'Tên file là: ' + x[0].name;
+            document.getElementById("hienthi").innerHTML = 'Các file đã upload là: <br>';
+            for(let item of x){
+                document.getElementById("hienthi").innerHTML += item.name + ', ';
+            }
+        }
+    </script>
+</body>
+</html>

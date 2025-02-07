@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 520px;
+            margin: 0 auto;
+            background: rgb(158, 221, 237);
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+        .item{
+            margin-bottom: 10px;
+        }
+        label{
+            min-width: 120px;
+            display: inline-block;
+        }
+        input{
+            padding: 5px 15px;
+        }
+        #submit{
+            margin-left: 125px;
+        }
+        p{
+            color: red;
+            font-size: 12px;
+            display: inline-block;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="anotherpage.php" onsubmit="return valForm()">
+        <div class="item">
+            <label for="">Họ và tên</label>
+            <input id="hoten" type="text" placeholder="Họ tên" onchange="changeHoTen()">
+            <p id="KiemLoiHoTen"></p>
+        </div>
+        <div class="item">
+            <label for="">Tuổi</label>
+            <input id="tuoi" type="text" placeholder="Tuổi" onchange="changeTuoi()">
+            <p id="KiemLoiTuoi"></p>
+        </div>
+        <div class="item">
+            <label for="">Email</label>
+            <input id="email" type="text" placeholder="Email" onchange="changeEmail()">
+            <p id="KiemLoiEmail"></p>
+        </div>
+        <div class="item">
+            <label for="">Password</label>
+            <input id="password" type="password" placeholder="Password" onchange="changePassword()">
+            <p id="KiemLoiPassword"></p>
+        </div>
+        <div class="item">
+            <label for="">Nhập lại password</label>
+            <input id="nhaplaipassword" type="password" placeholder="Nhập lại Password" onchange="changeNhapLaiPassword()">
+            <p id="KiemLoiNhapLaiPassword"></p>
+        </div>
+        <input id="submit" type="submit" value="submit">
+    </form>
+    <script>
+        function changeHoTen(){
+            if(document.getElementById('hoten') != ''){
+                document.getElementById('KiemLoiHoTen').innerText = '';
+            }
+        }
+        function changeTuoi(){
+            if(document.getElementById('tuoi').value != '' && !isNaN(document.getElementById('tuoi').value) && document.getElementById('tuoi').value > 0 ){
+               document.getElementById('KiemLoiTuoi').innerText = '';
+            }
+        }
+        function changeEmail(){
+            if(document.getElementById('email').value != '' && document.getElementById('email').value.includes('@') && document.getElementById('email').value.includes('.')){
+               document.getElementById('KiemLoiEmail').innerText = '';
+            }
+        }
+        function changePassword(){
+            if(document.getElementById('password').value != '' && document.getElementById('password').value.length >= 8){
+               document.getElementById('KiemLoiPassword').innerText = '';
+            }
+        }
+        function changeNhapLaiPassword(){
+            if(document.getElementById('nhaplaipassword').value == document.getElementById('password').value){
+               document.getElementById('KiemLoiNhapLaiPassword').innerText = 'Password nhập lại phải giống password ở trên';
+            }
+        }
+        function valForm(){
+            var hoten = document.getElementById('hoten'); // Biến hoten bằng thẻ input có id = hoten
+            var tuoi = document.getElementById('tuoi');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var nhaplaipassword = document.getElementById('nhaplaipassword');
+            if(hoten.value == ''){
+               document.getElementById('KiemLoiHoTen').innerText = 'Họ tên không được để trống';
+                return false; // trả về giá trị là false cho hàm valForm, dữ liệu ko được đây lên sever
+            }
+            // Kiểm tuổi nhập vào phải khác rỗng và là số dương
+            if(tuoi.value == '' || isNaN(tuoi.value) || tuoi.value <= 0 ){
+               document.getElementById('KiemLoiTuoi').innerText = 'Tuổi phải là số dương';
+                return false;
+            }
+            // Kiểm tra email phải khác rỗng, phải bao gồm ký tự @ và dấu 
+            // includes('@') bao gồm ký tự @
+            if(email.value == '' || !email.value.includes('@') || !email.value.includes('.')){
+               document.getElementById('KiemLoiEmail').innerText = 'Email phải bao gồm @ và dấu chấm';
+                return false;
+            }
+            //Kiểm tra password nhập vào phải có ít nhất 8 kí tự
+            // password.value.length trả về độ dài của password
+            if(password.value == '' || password.value.length < 8){
+               document.getElementById('KiemLoiPassword').innerText = 'Password phải có ít nhất 8 ký tự';
+                return false;
+            }
+            // Nhập lại password phải giống hệt như password
+            if(nhaplaipassword.value != password.value){
+               document.getElementById('KiemLoiNhapLaiPassword').innerText = 'Password nhập lại phải giống password ở trên';
+                return false;
+            }
+            return true; // trả về giá trị là true cho hàm valForm, dữ liệu được đây lên sever
+        }
+    </script>
+</body>
+</html>

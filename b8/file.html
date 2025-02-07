@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" multiple onchange="hienThi(this.files)">
+    <div id="hienThi1"></div>
+    <p>Hiển thị vị trí ng dùng</p>
+    <button onclick="vitri()" id="hienThiViTri">Vị trí</button>
+    <div id="vitri"></div>
+    <video id="myvideo" src="./5322187937763.mp4"></video>
+    <br>
+    <button onclick="playPause()">Play/Pause</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="replay()">Replay</button>
+    <button onclick="tangAL()">Tăng AL</button>
+    <button onclick="giamAL()">Giam AL</button>
+    <button onclick="mute()">Mute/Unmute</button>
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <script>
+        
+        var myvid = document.getElementById("myvideo")
+        var vitri = document.getElementById("vitri")
+        console.dir(myvid)
+        function playPause(){
+            if(myvid.paused){
+                myvid.play()
+            } else myvid.pause()
+        }
+        function stop(){
+            myvid.pause()
+            myvid.currentTime = 0
+        }
+
+        function replay(){
+            myvid.currentTime = 0
+            myvid.play()
+        }
+
+        function tangAL(){
+            myvid.volume = parseFloat(myvid.volume + 0.1).toFixed(1)
+        }
+        function giamAL(){
+            if(myvid.volume > 0){
+            myvid.volume = parseFloat(myvid.volume + 0.1).toFixed(1)}
+        }
+        function vitri(){
+            var vitri = document.getElementById("vitri")
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showposition)
+            } else {
+                vitri.innerHTML = 'Không tìm thấy'
+            }
+        }
+        function showposition(position){
+            vitri.innerHTML = "vĩ độ: " + position.coords.latitude + "Kinh độ: "+ position.coords.longitude
+
+        }
+        function hienThi(x){
+            console.log(x)
+            document.getElementById("hienThi1").innerHTML = 'Tên file: <br>' 
+            for (let item of x){
+                document.getElementById("hienThi1").innerHTML += item.name + ','
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm</title>
+</head>
+<body>
+    <script>
+        //hàm ko tham số
+        function sayHello() {
+        let you = prompt("What's your name? ");
+        console.log("Hello", you + "!");
+        }
+        sayHello();
+        //hàm chứa tham số
+        function addTwoNumbers(x, y) {
+        console.log(x + y);
+        }
+        addTwoNumbers(5,5);
+
+        function xacNhan(traloi) {
+        var ketQua = "";
+        if (traloi) {
+        ketQua = "Tuyet voi. Chuc ban chien thang!";
+        } else {
+        ketQua = "Hen gap lai ban nhe!";
+        }
+        return ketQua;
+        }
+        var traloi = confirm("Ban se choi game chu?");
+        var thongbao = xacNhan(traloi);
+        alert (thongbao);
+    </script>
+</body>
+</html>

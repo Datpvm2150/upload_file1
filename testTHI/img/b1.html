@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        img{
+            height: 300px; width: 500px;
+            display: block;
+        }
+    </style>
+</head>
+<body onload="loadAnh()">
+    <img src="./anh0.JPG" alt="" id="img"> <br>
+    <input type="button" value="Back" onclick="back()">
+    <input type="button" value="Stop" onclick="stop()">
+    <input type="button" value="Start" onclick="start()">
+    <input type="button" value="Next" onclick="next()">
+
+    <script>
+        var arrImg = new Array()
+        function loadAnh(){
+            for(let i = 0; i< 6; i++){
+                arrImg[i] = new Image()
+                arrImg[i].src = 'img/anh' + i + '.JPG'
+            }
+        }
+        var currentIndex = 0
+        function back(){
+            if(currentIndex > 0){
+                currentIndex--
+                document.getElementById("img").src = arrImg[currentIndex].src
+            } else {
+                currentIndex = arrImg.length
+                document.getElementById("img").src = arrImg[currentIndex].src
+            }
+        }
+
+        function next(){
+            if(currentIndex < arrImg.length){
+                currentIndex++
+                document.getElementById("img").src = arrImg[currentIndex].src
+            } else {
+                currentIndex = 0
+                document.getElementById("img").src = arrImg[currentIndex].src
+            }
+        }
+    </script>
+</body>
+</html>

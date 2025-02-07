@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        img{
+            margin: 0 auto;
+            display: block;
+            width: 500px; height: 500px;
+        }
+        input{
+            width: 100px;
+            margin: 10px auto;
+            padding: 10px;
+            
+        }
+        input:hover{
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="loadAnh()">
+    <img id="img" src="./img/1.webp" alt=""> <br>
+    <input type="button" value="Back" onclick="back()">
+    <input type="button" value="Next" onclick="next()">
+    <input type="button" value="Start" onclick="start()">
+    <input type="button" value="Stop" onclick="stop()">
+    <script>
+       var arrImg = new Array()
+       function loadAnh(){
+        for(let i=1; i<=6;i++){
+            arrImg[i] = new Image(); // tạo đối tượng image
+            arrImg[i].src = 'img/'+i+'.webp'
+            // console.log(arrImg)
+        }
+       }
+       var currentIndex = 1;
+       function back(){
+            if (currentIndex > 1) {
+                currentIndex-- //giảm chỉ số đi 1
+                document.getElementById("img").src = arrImg[currentIndex].src
+            } else {
+                currentIndex = arrImg.length;
+                document.getElementById("img").src = arrImg[currentIndex].src
+            }
+       }        
+       
+       function next(){
+            if (currentIndex < arrImg.length) {
+                currentIndex++ //tăng chỉ số thêm 1
+                document.getElementById("img").src = arrImg[currentIndex].src
+            } else {
+                currentIndex = 1
+                document.getElementById("img").src = arrImg[currentIndex].src
+            }
+       }
+       var x;
+       function start(){
+            x= setInterval(next,1000)
+       }
+       function stop(){
+            clearInterval(x)
+       }
+    </script>
+</body>
+</html>

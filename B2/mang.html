@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mảng</title>
+</head>
+<body>
+    <script>
+        //MẢNG
+        //Khai báo mảng:
+        arr1 = new Array("hello", "world", "javascript", "array");//c1
+        arr2 = ["hello", "world", "javascript", "array"];//c2
+        
+        //Truy xuất phần tử
+        console.log(arr1[1]);
+        document.write('<br>',arr2[2]);
+
+        //ghi đè
+        arr1[1]="hi";
+        arr2[3]="mảng";
+        console.log(arr1[1]);
+        document.write('<br>',arr2[3]);
+
+        //độ dài mảng - số lượng phần tử
+        console.log(arr1.length);
+
+        //thêm phần tử vào mảng
+        arr1.push("phú"); //cuối mảng
+        arr1.splice(2,0,"phương")//thêm 1 phần tử vào vị trí thứ X, xóa Y phần tử sau X
+        console.log(arr1);
+        
+        //Xóa phần tử của mảng
+        arr1.pop();
+        arr1.splice(1, 3); // xóa 3 phần tử sau vị trí 1
+        console.log(arr1);
+
+        //tìm vị trí phần tử trong mảng
+        arr8 = [ 2, 6, 7, 8,2,6 ];
+        console.log(arr8.indexOf(6));// trả về vị trí đầu tiên
+        arr8.lastIndexOf("2")//trả về vị trí cuối cùng của phần tử   
+
+        //Ép kiểu
+        // Trình thông dịch tự động chuyển kiểu
+        var x = 100;
+        console.log("Hello" + x);
+
+        //Ép kiểu số thành chuỗi
+        var x = String(100);
+        console.log(typeof(x));
+
+        //Ép kiểu chuỗi thành số
+        var x = "100";
+        var y = Number(x);
+        console.log(typeof(y));
+
+        //Toán tử
+        //Sự khác nhau giữa ++x và x++
+        var x = 4;
+        var y = ++x;
+        console.log ("x = "+x+"y = "+y)
+        var x = 4;
+        var y = x++;
+        console.log ("x = "+x+"y = "+y);
+
+        //căn bậc 2 và lũy thừa
+        console.log(Math.sqrt(64));
+        console.log(Math.pow(3,4))// pow(số, mũ)
+
+        
+    </script>
+    </script>
+</body>
+</html>

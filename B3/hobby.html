@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby</title>
+</head>
+<body>
+    <script>
+        function hienThi(doVat){
+            if(doVat=="game"){
+                document.write ("<img src= 'game.jpg'>");
+            } else document.write ("<img src= 'football.jpg'>");
+        }
+    </script>
+    <p>Bạn thích chơi</p>
+    <input type="button" value="game" onclick="hienThi('game');">
+    <input type="button" value="football" onclick="hienThi('football');">
+</body>
+</html>

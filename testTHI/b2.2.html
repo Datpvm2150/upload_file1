@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <h2>ĐỔI MẬT KHẨU</h2>
+    <form action="thanhcong.html" onsubmit="return valForm()">
+        <div class="form-group">
+            <label for="">Tên đăng nhập</label>
+            <span id="check1"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Nhập mật khẩu cũ</label>
+            <input type="password" id="opw">
+            <span id="check2"></span>
+        </div> <br>
+
+        <div class="form-group">
+            <label for="">Nhập mật khẩu mới</label>
+            <input type="password" id="npw">
+            <span id="check3"></span>
+        </div> <br>
+
+        <div class="form-group">
+            <label for="">Nhập lại mật khẩu mới</label>
+            <input type="password" id="rnpw">
+            <span id="check4"></span>
+        </div> <br>
+
+        <input type="submit" id="button" value="Đổi mật khẩu">
+    </form>
+
+    <script>
+        function valForm(){
+            var user = document.getElementById("user")
+            var opw = document.getElementById("opw")
+            var npw = document.getElementById("npw")
+            var rnpw = document.getElementById("rnpw")
+
+            if(user.value === ''){
+                document.getElementById("check1").innerHTML = "Nhập tên đăng nhập!!!"
+                return false
+            } else document.getElementById("check1").innerHTML = ''
+
+            if(opw.value !== "a"){
+                document.getElementById("check2").innerHTML = "Mật khẩu không chính xác!!!"
+                return false
+            }
+
+            
+        }
+    </script>
+</body>
+</html>

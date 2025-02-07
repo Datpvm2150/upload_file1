@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 400px;
+            margin: 10px auto;
+            border: 1px solid gainsboro;
+            padding: 10px;
+            color: #1C4284;
+            background: linear-gradient(to bottom, white, #E1E5F0);
+        }
+        .form{
+            padding-right: 500px;
+            /* text-align: right; */
+            padding: 10px;
+        }
+        label{
+            text-align: right;
+        }
+        form{
+            padding-right: 280px;
+        }
+        form>span{
+            /*  */
+            /* position: absolute;
+            right: 500px; */
+            display: inline;
+        }
+        input{
+            margin: 10px auto;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Sign Up</h3>
+    <p>It's free and always will be</p>
+    <hr>
+    <div class="form">
+        <form action="anotherpage.php" onsubmit="return valForm()">
+            <label for="">First Name:</label> <input type="text" id="hoten"> 
+            <span id="loiHoTen" style="color: red;"></span> <br>
+            <label for="">Age:</label> <input type="number" id="tuoi"> <span id="loiTuoi" style="color: red;"></span> <br>
+            <label for="">Your Email:</label> <input type="email" id="email"> <span id="loiEmail" style="color: red;"></span> <br>
+            <label for="">New Password:</label> <input type="password" id="pw"> <span id="loiPW" style="color: red;"></span> <br>
+            <label for="">Repeat Password:</label> <input type="password" id="rpw"> <span id="loiRPW" style="color: red;"></span> <br>
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </div>
+    </div>
+
+    <script>
+        function valForm(){
+            var hoten = document.getElementById("hoten");
+            var tuoi = document.getElementById("tuoi").value
+            var email = document.getElementById("email").value
+            var pw =document.getElementById("pw").value
+            var rpw =document.getElementById("rpw").value
+            if(hoten.value == ''){
+                document.getElementById("loiHoTen").innerText = ('Họ tên ko đc để trống')
+                
+                return false; //trả về giá trị false cho hàm valform
+            } 
+            // else return true; //trả về giá trị true cho hàm valform 
+
+            
+            if(tuoi <=0 || isNaN(tuoi) || tuoi == ''){
+                document.getElementById("loiTuoi").innerText = ("Vui lòng nhập tuổi là số nguyên dương")
+                return false
+            } 
+
+            
+
+            if(email == '' || !email.includes('@') || !email.includes('.')){
+                document.getElementById("loiEmail").innerText = ("Vui lòng nhập đúng định dạng của email")
+                return false
+            } 
+
+            
+
+            if(pw.length < 8 || pw == ''){
+                document.getElementById("loiPW").innerText = ("Mật khẩu phải từ 8 kí tự trở lên")
+                return false ;
+            }
+
+            if(rpw !== pw){
+                document.getElementById("loiRPW").innerText = ("Vui lòng nhập lại mật khẩu trùng khớp")
+                return false ;
+            } return true ;
+        }
+    </script>
+</body>
+</html>

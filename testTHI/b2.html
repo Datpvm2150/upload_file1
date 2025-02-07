@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            margin: 10px auto;
+            padding-left: 200px;
+            border: 1px solid black;
+            /* padding-right: 200px; */
+            /* text-align: center; */
+        }
+        .form-group{
+            margin: 10px;
+            min-width: 120px;
+        }
+        .weak {
+            color: yellow;
+        }
+        .medium {
+            color: red;
+        }
+        .strong {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ĐỔI MẬT KHẨU</h2>
+        <form action="doimatkhau.html" onsubmit="return valForm()">
+            <div class="form-group">
+                <label for="">Tên đăng nhập</label>
+                <input type="text" id="user">
+                <span id="check1"></span>
+            </div> <br>
+
+            <div class="form-group">
+                <label for="">Nhập mật khẩu cũ</label>
+                <input type="password" id="opw">
+                <span id="check2"></span>
+            </div> <br>
+
+            <div class="form-group">
+                <label for="">Nhập mật khẩu mới</label>
+                <input type="password" id="npw">
+                <span id="check3"></span>
+            </div> <br>
+
+            <div class="form-group">
+                <label for="">Nhập lại mật khẩu mới</label>
+                <input type="password" id="rnpw">
+                <span id="check4"></span>
+            </div> <br>
+
+            <input type="submit" id="button" value="Đổi mật khẩu">
+        </form>
+    </div>
+
+    <script>
+        function valForm(){
+            var user = document.getElementById("user")
+            var opw = document.getElementById("opw")
+            var npw = document.getElementById("npw")
+            var rnpw = document.getElementById("rnpw").value
+
+            if (user.value === ''){
+                document.getElementById("check1").innerHTML = "Vui lòng nhập tên đăng nhập!!!"
+                return false;
+            }
+
+            if (opw.value !== "a"){
+                document.getElementById("check2").innerHTML = "Mật khẩu hiện tại không chính xác!!!"
+                return false;
+            }
+
+            if (npw.value === ''){
+                document.getElementById("check3").innerHTML = "Vui lòng nhập mật khẩu mới!!!"
+                return false;
+            }
+
+            if (npw.value.length < 8){
+                if(npw.value.length <3){
+                    document.getElementById("check3").innerHTML = "Mật khẩu yếu!!!"
+                    document.getElementById("check3").className = "check3 weak"
+                    // npw.value.style.color = "red"
+                } else{
+                    document.getElementById("check3").innerHTML = "Mật khẩu trung bình!!!"
+                    document.getElementById("check3").className = "check3 medium"
+                    // npw.value.style.color = "yellow"
+                }
+            } else {
+                    document.getElementById("check3").innerHTML = "Mật khẩu mạnh!!!"
+                    document.getElementById("check3").className = "check3 strong"
+                    // npw.value.style.color = "gray"
+            }
+            
+            if(npw.value !== rnpw){
+                document.getElementById("check4").innerHTML = "Mật khẩu không trùng khớp!!!"
+                return false;
+            }
+            
+            return true
+        }   
+            
+    </script>
+</body>
+</html>

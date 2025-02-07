@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variable in HTML</title>
+</head>
+<body>
+
+<script>
+    // Tạo một đối tượng Date mới, đại diện cho thời điểm hiện tại
+var currentDate = new Date();
+
+// Lấy ngày
+var day = currentDate.getDate();
+
+// Lấy tháng (chú ý: tháng bắt đầu từ 0)
+var month = currentDate.getMonth() + 1;
+
+// Lấy năm
+var year = currentDate.getFullYear();
+
+// Lấy giờ
+var hours = currentDate.getHours();
+
+// Lấy phút
+var minutes = currentDate.getMinutes();
+
+// Lấy giây
+var seconds = currentDate.getSeconds();
+
+var time= day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+// In ra ngày và giờ hiện tại
+console.log("Ngày: " + day + "/" + month + "/" + year);
+console.log("Giờ: " + hours + ":" + minutes + ":" + seconds);
+console.log(time);
+</script>
+
+<p>This is a JavaScript variable: <span id="output"></span></p>
+
+<script>
+    // Sử dụng biến trong HTML
+    document.getElementById("output").innerText = now1;
+</script>
+
+</body>
+</html>
