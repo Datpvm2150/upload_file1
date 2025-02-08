@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        .slider {
+            width: 650px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+
+        button {
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <img src="images/1.jpg" alt="" id="img">
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+    </div>
+    <script src="./bai2.js"></script>
+</body>
+
+</html>
